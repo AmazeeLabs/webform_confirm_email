@@ -74,6 +74,9 @@ function webform_confirm_email_confirmation_request_email_edit($node, $email = a
       '_webform_confirm_email_edit_confirmation_request_email_submit',
     ),
   );
+  if (function_exists('_webform_localization_webform_email_edit_form_submit')) {
+    $form_state['submit_handlers'][] = '_webform_localization_webform_email_edit_form_submit';
+  }
   $form_state += form_state_defaults();
   if (!isset($form_state['input'])) {
     $form_state['input'] = $form_state['method'] == 'get' ? $_GET : $_POST;
@@ -242,6 +245,9 @@ function webform_confirm_email_confirmation_email_edit($node, $email = array()) 
       '_webform_confirm_email_edit_confirmation_email_submit',
     ),
   );
+  if (function_exists('_webform_localization_webform_email_edit_form_submit')) {
+    $form_state['submit_handlers'][] = '_webform_localization_webform_email_edit_form_submit';
+  }
   $form = drupal_build_form(
     'webform_email_edit_form',
     $form_state
