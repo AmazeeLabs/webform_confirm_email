@@ -248,16 +248,7 @@ function webform_confirm_email_confirmation($node,
     }
   }
 
-  drupal_goto(
-    $redirect_url,
-    array(
-      'query' => array(
-        'share'   => 'node/' . $node->nid,
-        'sid'     => $submission->sid,
-        'confirm' => true,
-      ),
-    )
-  );
+  drupal_goto($redirect_url);
 }
 
 /**
